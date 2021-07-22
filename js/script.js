@@ -44,6 +44,13 @@ const card = {
 
 const containerDisplay = document.getElementById('container');
 
+//# SUBTYPE CONTROL
+let subType = 'Nessuna Subtype per questa carta';
+if (card.subType) {
+    subType = card.subType;
+}
+
+//# FOR CYCLE IN ABILITIES ARRAY
 let abilities;
 if (card.abilities.length) {
     for (let i = 0; i < card.abilities.length; i++) {
@@ -57,6 +64,7 @@ if (card.abilities.length) {
     abilities = 'Nessuna Abilità';
 }
 
+//# CARD TEMPLATE
 const cardTemplate = `
 <ul>
     <li>${card.id}</li>
@@ -64,7 +72,7 @@ const cardTemplate = `
     <li>${card.launchCost}</li>
     <li>${card.combinedManaCost}</li>
     <li>${card.cardType}</li>
-    <li>${card.subType}</li>
+    <li>${subType}</li>
     <li>${card.expansion.reprintId}</li>
     <li>${card.expansion.name}</li>
     <li>${card.expansion.rarity}</li>
