@@ -45,12 +45,12 @@ const card = {
 }
 
 //#FUNCTION 
-/*
+/**
  * 
  * @param {*} object 
  * @param {*} string 
- * @returns SVGAnimatedString
-**/
+ * @returns flavorText
+*/
 
 function my_function(object, key) {
     var flavorText = 'Nessun FlavorText per questa carta';
