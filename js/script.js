@@ -23,7 +23,7 @@ const card = {
         },
         {
             launchCost: ['5', 'R', 'U'],
-            description: 'Increase Strenght'
+            description: 'Increase Strenght',
         },
     ],
     constitution: 13,
@@ -44,16 +44,34 @@ const card = {
 
 const containerDisplay = document.getElementById('container');
 
+let abilities;
+if (card.abilities.length) {
+    for (let i = 0; i < card.abilities.length; i++) {
+        abilities += `
+        <ul>
+            <li>${card.abilities[i].launchCost}</li>
+            <li>${card.abilities[i].description}</li>
+        </ul>`;
+    }
+} else {
+    abilities = 'Nessuna Abilità';
+}
+
 const cardTemplate = `
 <ul>
     <li>${card.id}</li>
-    <li>Test</li>
-    <li>Test</li>
-    <li>Test</li>
-    <li>Test</li>
-    <li>Test</li>
-    <li>Test</li>
-    <li>Test</li>
+    <li>${card.name}</li>
+    <li>${card.launchCost}</li>
+    <li>${card.combinedManaCost}</li>
+    <li>${card.cardType}</li>
+    <li>${card.subType}</li>
+    <li>${card.expansion.reprintId}</li>
+    <li>${card.expansion.name}</li>
+    <li>${card.expansion.rarity}</li>
+    <li>${card.expansion.collectionNr}</li>
+    <li>${card.expansion.totalCard}</li>
+    <li>${card.flavorText.quote}</li>
+    <li>${abilities}</li>
 </ul>`;
 
 containerDisplay.innerHTML = cardTemplate;
