@@ -51,13 +51,13 @@ if (card.subType) {
 }
 
 //# FOR CYCLE IN ABILITIES ARRAY
-let abilities;
+let abilities = '';
 if (card.abilities.length) {
     for (let i = 0; i < card.abilities.length; i++) {
         abilities += `
         <ul>
-            <li>${card.abilities[i].launchCost}</li>
-            <li>${card.abilities[i].description}</li>
+            <li><strong>LAUNCH COST: </strong>${card.abilities[i].launchCost}</li>
+            <li><strong>DESCRIPTION: </strong>${card.abilities[i].description}</li>
         </ul>`;
     }
 } else {
@@ -67,19 +67,27 @@ if (card.abilities.length) {
 //# CARD TEMPLATE
 const cardTemplate = `
 <ul>
-    <li>${card.id}</li>
-    <li>${card.name}</li>
-    <li>${card.launchCost}</li>
-    <li>${card.combinedManaCost}</li>
-    <li>${card.cardType}</li>
-    <li>${subType}</li>
-    <li>${card.expansion.reprintId}</li>
-    <li>${card.expansion.name}</li>
-    <li>${card.expansion.rarity}</li>
-    <li>${card.expansion.collectionNr}</li>
-    <li>${card.expansion.totalCard}</li>
-    <li>${card.flavorText.quote}</li>
-    <li>${abilities}</li>
+    <li><strong>ID: </strong>${card.id}</li>
+    <li><strong>NAME: </strong>${card.name}</li>
+    <li><strong>LAUNCH COST: </strong>${card.launchCost}</li>
+    <li><strong>COMBINED MANA COST: </strong>${card.combinedManaCost}</li>
+    <li><strong>CARD TYPE: </strong>${card.cardType}</li>
+    <li><strong>CARD SUBTYPE: </strong>${subType}</li>
+    <li><strong>REPRINT ID: </strong>${card.expansion.reprintId}</li>
+    <li><strong>EXPANSION: </strong>${card.expansion.name}</li>
+    <li><strong>RARITY: </strong>${card.expansion.rarity}</li>
+    <li><strong>COLLECTION NUMBER: </strong>${card.expansion.collectionNr}</li>
+    <li><strong>TOTAL CARD: </strong>${card.expansion.totalCard}</li>
+    <li><strong>QUOTE: </strong>${card.flavorText.quote}</li>
+    <li><strong>ABILITIES': </strong>${abilities}</li>
+    <li><strong>CONSTITUTION: </strong>${card.constitution}</li>
+    <li><strong>STRENGTH: </strong>${card.strength}</li>
+    <li><strong>BORDER COLOR: </strong>${card.borderColor}</li>
+    <li><strong>AUTHOR-ID: </strong>${card.illustration.author.id}</li>
+    <li><strong>AUTHOR-NAME: </strong>${card.illustration.author.name}</li>
+    <li><strong>ILLUSTRATION-SOURCE: </strong>${card.illustration.source}</li>
+    <li><strong>BACKGROUND COLOR: </strong>${card.background.color}</li>
+    <li><strong>BACKGROUND SOURCE: </strong>${card.background.source}</li>
 </ul>`;
 
 containerDisplay.innerHTML = cardTemplate;
