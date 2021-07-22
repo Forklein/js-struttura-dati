@@ -1,3 +1,5 @@
+const containerDisplay = document.getElementById('container');
+
 const card = {
     id: 1,
     name: 'Bloodfire Colossus',
@@ -41,11 +43,16 @@ const card = {
         source: '..img/pic.jpg',
     }
 }
-
-const containerDisplay = document.getElementById('container');
+let flavorText = '<em>Nessun FlavorText per questa carta</em>';
+if (card.flavorText) {
+    flavorText = `<ul>
+    <li><strong>QUOTE: </strong>${card.flavorText.quote}</li>
+    <li><strong>AUTHOR: </strong>${card.flavorText.author}</li>
+    </ul>`;
+}
 
 //# SUBTYPE CONTROL
-let subType = 'Nessuna Subtype per questa carta';
+let subType = '<em>Nessuna Subtype per questa carta</em>';
 if (card.subType) {
     subType = card.subType;
 }
@@ -61,7 +68,7 @@ if (card.abilities.length) {
         </ul>`;
     }
 } else {
-    abilities = 'Nessuna Abilità';
+    abilities = '<em>Nessuna Abilità</em>';
 }
 
 //# CARD TEMPLATE
@@ -78,8 +85,8 @@ const cardTemplate = `
     <li><strong>RARITY: </strong>${card.expansion.rarity}</li>
     <li><strong>COLLECTION NUMBER: </strong>${card.expansion.collectionNr}</li>
     <li><strong>TOTAL CARD: </strong>${card.expansion.totalCard}</li>
-    <li><strong>QUOTE: </strong>${card.flavorText.quote}</li>
-    <li><strong>ABILITIES': </strong>${abilities}</li>
+    <li><strong>FLAVORTEXT: </strong>${flavorText}</li>
+    <li><strong>ABILITIES: </strong>${abilities}</li>
     <li><strong>CONSTITUTION: </strong>${card.constitution}</li>
     <li><strong>STRENGTH: </strong>${card.strength}</li>
     <li><strong>BORDER COLOR: </strong>${card.borderColor}</li>
