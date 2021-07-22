@@ -55,7 +55,7 @@ const card = {
 function my_function(object, key) {
     var flavorText = 'Nessun FlavorText per questa carta';
     if (object[key]) {
-        var flavorText = `
+        flavorText = `
         <ul>
             <li><strong>QUOTE: </strong>${object[key].quote}</li>
             <li><strong>AUTHOR: </strong>${object[key].author}</li>
