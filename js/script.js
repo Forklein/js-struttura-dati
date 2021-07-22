@@ -43,13 +43,37 @@ const card = {
         source: '..img/pic.jpg',
     }
 }
+
+//#FUNCTION 
+/*
+ * 
+ * @param {*} object 
+ * @param {*} string 
+ * @returns SVGAnimatedString
+**/
+
+function my_function(object, key) {
+    var flavorText = 'Nessun FlavorText per questa carta';
+    if (object[key]) {
+        var flavorText = `
+        <ul>
+            <li><strong>QUOTE: </strong>${object[key].quote}</li>
+            <li><strong>AUTHOR: </strong>${object[key].author}</li>
+        </ul>`;
+    }
+    return flavorText;
+}
+
+var flavorText = my_function(card, 'flavorText');
+
+/* //# FLAVORTEXT CONTROL
 let flavorText = '<em>Nessun FlavorText per questa carta</em>';
 if (card.flavorText) {
-    flavorText = `<ul>
+    flavorText = `< ul >
     <li><strong>QUOTE: </strong>${card.flavorText.quote}</li>
     <li><strong>AUTHOR: </strong>${card.flavorText.author}</li>
-    </ul>`;
-}
+    </ > `;
+} */
 
 //# SUBTYPE CONTROL
 let subType = '<em>Nessuna Subtype per questa carta</em>';
@@ -65,7 +89,7 @@ if (card.abilities.length) {
         <ul>
             <li><strong>LAUNCH COST: </strong>${card.abilities[i].launchCost}</li>
             <li><strong>DESCRIPTION: </strong>${card.abilities[i].description}</li>
-        </ul>`;
+        </ul> `;
     }
 } else {
     abilities = '<em>Nessuna Abilità</em>';
@@ -98,4 +122,3 @@ const cardTemplate = `
 </ul>`;
 
 containerDisplay.innerHTML = cardTemplate;
-
