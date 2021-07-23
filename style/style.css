@@ -7,12 +7,36 @@
 body{
     background-color: brown;
     font-family: sans-serif;
-    font-size: 24px;
+    font-size: 16px;
     color: black;
 }
 
+ul{
+    list-style: none;
+}
+
+button{
+    padding: 5px;
+}
+
 #container{
-    margin: 50px auto;
+    display: flex;
+    padding: 10px;
+}
+
+.filter-box{
+    padding: 10px;
+}
+
+.filter-box > *{
+    margin: 5px;
+}
+
+.card{
+    width: 300px;
+    padding: 10px;
     text-align: center;
-    background-color: coral;
+    background-color: aquamarine;
+    border: 1px solid black;
+    border-radius: 20px;
 }

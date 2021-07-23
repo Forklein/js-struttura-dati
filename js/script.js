@@ -44,6 +44,139 @@ const card = {
     }
 }
 
+
+const fullDeck = [
+    {
+        id: 1,
+        name: 'Bloodfire Colossus',
+        launchCost: ['6', 'R', 'R'],
+        combinedManaCost: 8,
+        cardType: 'Creatura',
+        subType: 'Giant',
+        expansion: {
+            reprintId: 9,
+            name: 'Limited Expansion',
+            rarity: 'Gold',
+            collectionNr: 12,
+            totalCard: 42,
+        },
+        flavorText: {
+            quote: 'Description',
+            author: 'Forklein',
+        },
+        abilities: [
+            {
+                launchCost: ['R', 'T'],
+                description: 'Destroy all monster',
+            },
+            {
+                launchCost: ['5', 'R', 'U'],
+                description: 'Increase Strenght',
+            },
+        ],
+        constitution: 13,
+        strength: 13,
+        borderColor: '#000',
+        illustration: {
+            author: {
+                id: 1,
+                name: 'Greg Smith',
+            },
+            source: '..img/pic.jpg',
+        },
+        background: {
+            color: 'red',
+            source: '..img/pic.jpg',
+        }
+    },
+    {
+        id: 2,
+        name: 'Shaman',
+        launchCost: ['5', 'U', 'U'],
+        combinedManaCost: 7,
+        cardType: 'Terra',
+        subType: 'Ball',
+        expansion: {
+            reprintId: 7,
+            name: 'Normal Expansion',
+            rarity: 'Silver',
+            collectionNr: 10,
+            totalCard: 40,
+        },
+        flavorText: {
+            quote: 'Description',
+            author: 'Forklein',
+        },
+        abilities: [
+            {
+                launchCost: ['R', 'T'],
+                description: 'Destroy all monster',
+            },
+            {
+                launchCost: ['5', 'R', 'U'],
+                description: 'Increase Strenght',
+            },
+        ],
+        constitution: 14,
+        strength: 10,
+        borderColor: '#fff',
+        illustration: {
+            author: {
+                id: 1,
+                name: 'Will Smith',
+            },
+            source: '..img/pic.jpg',
+        },
+        background: {
+            color: 'blue',
+            source: '..img/pic.jpg',
+        }
+    },
+    {
+        id: 3,
+        name: 'Grizzly',
+        launchCost: ['6', 'G', 'G'],
+        combinedManaCost: 8,
+        cardType: 'Creatura',
+        subType: 'Bear',
+        expansion: {
+            reprintId: 8,
+            name: 'Limited Expansion',
+            rarity: 'Platinum',
+            collectionNr: 7,
+            totalCard: 43,
+        },
+        flavorText: {
+            quote: 'Description',
+            author: 'Forklein',
+        },
+        abilities: [
+            {
+                launchCost: ['R', 'T'],
+                description: 'Destroy all monster',
+            },
+            {
+                launchCost: ['5', 'R', 'U'],
+                description: 'Increase Strenght',
+            },
+        ],
+        constitution: 15,
+        strength: 15,
+        borderColor: '#123',
+        illustration: {
+            author: {
+                id: 1,
+                name: 'William',
+            },
+            source: '..img/pic.jpg',
+        },
+        background: {
+            color: 'yellow',
+            source: '..img/pic.jpg',
+        }
+    },
+];
+
 //#FUNCTION 
 /**
  * 
@@ -97,6 +230,7 @@ if (card.abilities.length) {
 
 //# CARD TEMPLATE
 const cardTemplate = `
+<div class="card">
 <ul>
     <li><strong>ID: </strong>${card.id}</li>
     <li><strong>NAME: </strong>${card.name}</li>
@@ -119,6 +253,30 @@ const cardTemplate = `
     <li><strong>ILLUSTRATION-SOURCE: </strong>${card.illustration.source}</li>
     <li><strong>BACKGROUND COLOR: </strong>${card.background.color}</li>
     <li><strong>BACKGROUND SOURCE: </strong>${card.background.source}</li>
-</ul>`;
+</ul>
+</div>`;
 
 containerDisplay.innerHTML = cardTemplate;
+
+
+//# Function print object in html
+
+/* objInPage(card, 'container');
+
+function objInPage(obj, id) {
+    var display = document.getElementById(id);
+    var elementObject = "";
+    for (var key in obj) {
+        elementObject += `<ul>
+        <li>${obj[key]}</li>
+        </ul>`;
+        if (typeof (obj[key]) == "object") {
+            var newObject = obj[key];
+            for (var prop in newObject) {
+                elementObject += `${newObject[prop]}`;
+            }
+        }
+    }
+    display.innerHTML = elementObject;
+    console.log(elementObject);
+} */
