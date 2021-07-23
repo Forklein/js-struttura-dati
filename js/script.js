@@ -20,7 +20,7 @@ const card = {
         collectionNr: 12,
         totalCard: 42,
     },
-    flavorText: {
+    flavortext: {
         quote: 'Description',
         author: 'Forklein',
     },
@@ -65,7 +65,7 @@ const fullDeck = [
             collectionNr: 12,
             totalCard: 42,
         },
-        flavorText: {
+        flavortext: {
             quote: 'Description',
             author: 'Forklein',
         },
@@ -108,7 +108,7 @@ const fullDeck = [
             collectionNr: 10,
             totalCard: 40,
         },
-        flavorText: {
+        flavortext: {
             quote: 'Nothing to do',
             author: 'George',
         },
@@ -151,7 +151,7 @@ const fullDeck = [
             collectionNr: 7,
             totalCard: 43,
         },
-        flavorText: {
+        flavortext: {
             quote: 'Affiliate beast',
             author: 'Durkob',
         },
@@ -189,10 +189,10 @@ const cardTemplate = (card) => {
     let cardTemplate = '';
     //# FLAVORTEXT CONTROL
     let flavorText = '<em>Nessun FlavorText per questa carta</em>';
-    if (card.flavorText) {
+    if (card.flavortext) {
         flavorText = `<ul>
-    <li><strong>QUOTE: </strong>${card.flavorText.quote}</li>
-    <li><strong>AUTHOR: </strong>${card.flavorText.author}</li>
+    <li><strong>QUOTE: </strong>${card.flavortext.quote}</li>
+    <li><strong>AUTHOR: </strong>${card.flavortext.author}</li>
     </ul>`;
     }
 
@@ -273,8 +273,8 @@ filter.addEventListener('change', () => {
 
 //# ADDEVENTLISTENER FOR BUTTON FILTER
 button.addEventListener('click', () => {
+    const textUserValue = textUser.value;
     const filterValue = filter.value;
-    const textUserValue = textUser.value.toLowerCase();
     if (filterValue == 'all') {
         containerDisplay.innerHTML = deckTemplate(fullDeck);
         return;
@@ -289,18 +289,18 @@ button.addEventListener('click', () => {
             case 'combinedManaCost':
                 if (currentCard[filterValue] == textUserValue) {
                     filterDeck.push(currentCard);
-                    break;
                 }
-            case 'flavorText-author':
-                if (currentCard.flavorText.author.includes(textUserValue)) {
+                break;
+            case 'flavortext-author':
+                if (currentCard.flavortext.author.includes(textUserValue)) {
                     filterDeck.push(currentCard);
-                    break;
                 }
-            case 'flavorText-quote':
-                if (currentCard.flavorText.quote.includes(textUserValue)) {
+                break;
+            case 'flavortext-quote':
+                if (currentCard.flavortext.quote.includes(textUserValue)) {
                     filterDeck.push(currentCard);
-                    break;
                 }
+                break;
             default:
                 if (currentCard[filterValue].includes(textUserValue)) {
                     filterDeck.push(currentCard);
@@ -308,7 +308,7 @@ button.addEventListener('click', () => {
         }
     }
     containerDisplay.innerHTML = deckTemplate(filterDeck);
-})
+});
 
 
 
