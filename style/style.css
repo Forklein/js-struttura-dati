@@ -21,11 +21,18 @@ button{
 
 #container{
     display: flex;
+    justify-content: space-around;
     padding: 10px;
+}
+
+.hidden{
+    display: none;
 }
 
 .filter-box{
     padding: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 .filter-box > *{
@@ -40,3 +47,4 @@ button{
     border: 1px solid black;
     border-radius: 20px;
 }
+

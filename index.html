@@ -11,15 +11,21 @@
 
 <body>
     <div class="filter-box">
-        <input type="text">
-        <select id="">
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
+        <select id="filter">
+            <option selected value="all">All</option>
+            <option value="id">Id</option>
+            <option value="name">Name</option>
+            <option value="combinedManaCost">Mana Cost</option>
+            <option value="cardType">Type Card</option>
+            <option value="subType">SubType Card</option>
+            <option value="constitution">Constitution</option>
+            <option value="strength">Strength</option>
+            <option value="launchCost">Launch Cost</option>
+            <option value="flavorText-author">Flavor Text Author</option>
+            <option value="flavorText-quote">Flavor Text Quote</option>
         </select>
-        <button>Filtra</button>
+        <input type="text" id="search" class="hidden">
+        <button id="button">Filtra</button>
     </div>
     <hr>
     <div id="container"></div>

@@ -1,5 +1,11 @@
-const containerDisplay = document.getElementById('container');
 
+//# GET CONTAINER ID AND BUTTON
+const containerDisplay = document.getElementById('container');
+const button = document.getElementById('button');
+
+
+
+//! One CARD
 const card = {
     id: 1,
     name: 'Bloodfire Colossus',
@@ -43,7 +49,7 @@ const card = {
         source: '..img/pic.jpg',
     }
 }
-
+//! Deck CARD
 const fullDeck = [
     {
         id: 1,
@@ -103,8 +109,8 @@ const fullDeck = [
             totalCard: 40,
         },
         flavorText: {
-            quote: 'Description',
-            author: 'Forklein',
+            quote: 'Nothing to do',
+            author: 'George',
         },
         abilities: [
             {
@@ -146,8 +152,8 @@ const fullDeck = [
             totalCard: 43,
         },
         flavorText: {
-            quote: 'Description',
-            author: 'Forklein',
+            quote: 'Affiliate beast',
+            author: 'Durkob',
         },
         abilities: [
             {
@@ -177,10 +183,7 @@ const fullDeck = [
 ];
 
 
-
-
-
-//# FUNCTION PRINT IN PAGE
+//# FUNCTION CARD TEMPLATE
 
 const cardTemplate = (card) => {
     let cardTemplate = '';
@@ -242,7 +245,79 @@ const cardTemplate = (card) => {
     </div>`;
     return cardTemplate;
 }
-containerDisplay.innerHTML = cardTemplate(card);
+// containerDisplay.innerHTML = cardTemplate(card);
+
+//# FUNCTION DECK TEMPLATE
+const deckTemplate = (deck) => {
+
+    let deckTemplate = '';
+    for (let i = 0; i < deck.length; i++) {
+        var currentCard = deck[i];
+        deckTemplate += cardTemplate(currentCard);
+    }
+    return deckTemplate;
+}
+
+//# GET SELECT AND SEARCH BAR
+const filter = document.getElementById('filter');
+const textUser = document.getElementById('search');
+
+//# ADDEVENTLISTENER FOR SELECT
+filter.addEventListener('change', () => {
+    if (filter.value !== 'all') {
+        textUser.classList.remove('hidden');
+    } else {
+        textUser.classList.add('hidden')
+    }
+});
+
+//# ADDEVENTLISTENER FOR BUTTON FILTER
+button.addEventListener('click', () => {
+    const filterValue = filter.value;
+    const textUserValue = textUser.value.toLowerCase();
+    if (filterValue == 'all') {
+        containerDisplay.innerHTML = deckTemplate(fullDeck);
+        return;
+    }
+    const filterDeck = [];
+    for (let i = 0; i < fullDeck.length; i++) {
+        const currentCard = fullDeck[i];
+        switch (filterValue) {
+            case 'id':
+            case 'constitution':
+            case 'strength':
+            case 'combinedManaCost':
+                if (currentCard[filterValue] == textUserValue) {
+                    filterDeck.push(currentCard);
+                    break;
+                }
+            case 'flavorText-author':
+                if (currentCard.flavorText.author.includes(textUserValue)) {
+                    filterDeck.push(currentCard);
+                    break;
+                }
+            case 'flavorText-quote':
+                if (currentCard.flavorText.quote.includes(textUserValue)) {
+                    filterDeck.push(currentCard);
+                    break;
+                }
+            default:
+                if (currentCard[filterValue].includes(textUserValue)) {
+                    filterDeck.push(currentCard);
+                }
+        }
+    }
+    containerDisplay.innerHTML = deckTemplate(filterDeck);
+})
+
+
+
+
+
+
+
+
+
 
 //#FUNCTION CHECK FLAVORTEXT
 /**
